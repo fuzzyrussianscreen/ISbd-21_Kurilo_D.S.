@@ -12,7 +12,8 @@ namespace Lab1
 {
     public partial class FormFighter : Form
     {
-        private Fighter fighter;
+        private Fighter fighter;
+
         public FormFighter()
         {
             InitializeComponent();
