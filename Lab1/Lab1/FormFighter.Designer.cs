@@ -34,6 +34,7 @@
             this.buttonUp = new System.Windows.Forms.Button();
             this.buttonRight = new System.Windows.Forms.Button();
             this.pictureBoxFighter = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFighter)).BeginInit();
             this.SuspendLayout();
             // 
@@ -41,9 +42,9 @@
             // 
             this.buttonCreate.Location = new System.Drawing.Point(12, 12);
             this.buttonCreate.Name = "buttonCreate";
-            this.buttonCreate.Size = new System.Drawing.Size(55, 23);
+            this.buttonCreate.Size = new System.Drawing.Size(152, 31);
             this.buttonCreate.TabIndex = 1;
-            this.buttonCreate.Text = "Create";
+            this.buttonCreate.Text = "Create Fighter";
             this.buttonCreate.UseVisualStyleBackColor = true;
             this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
             // 
@@ -104,11 +105,22 @@
             this.pictureBoxFighter.TabIndex = 0;
             this.pictureBoxFighter.TabStop = false;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(206, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(148, 31);
+            this.button1.TabIndex = 6;
+            this.button1.Text = "Create War Planer";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FormFighter
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(882, 453);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.buttonUp);
             this.Controls.Add(this.buttonLeft);
             this.Controls.Add(this.buttonDown);
@@ -131,6 +143,7 @@
         private System.Windows.Forms.Button buttonDown;
         private System.Windows.Forms.Button buttonLeft;
         private System.Windows.Forms.Button buttonUp;
+        private System.Windows.Forms.Button button1;
     }
 }
 
