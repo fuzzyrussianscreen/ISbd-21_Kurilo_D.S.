@@ -28,17 +28,18 @@ namespace Lab1
             FrontSpoiler = frontSpoiler;
             Signs = signs;
             Signs2 = signs2;
+            DopColor = dopColor;
         }
 
         public override void Draw(Graphics g)   
         {
             Pen pen_18 = new Pen(DopColor, 16);
-            Pen pen_8 = new Pen(DopColor, 8);
-            Pen pen_5 = new Pen(DopColor, 5);
+            //Pen pen_8 = new Pen(DopColor, 8);
+            //Pen pen_5 = new Pen(DopColor, 5);
             Pen pen_9 = new Pen(MainColor, 10);
             Pen pen_6 = new Pen(MainColor, 6);
             Pen pen_3 = new Pen(MainColor, 3);
-            Brush brush = new SolidBrush(Color.Red);
+            Brush brush = new SolidBrush(DopColor);
 
             if (FrontSpoiler)
             {

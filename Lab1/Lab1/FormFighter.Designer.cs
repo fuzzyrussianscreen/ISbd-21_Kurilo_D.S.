@@ -1,6 +1,6 @@
 ﻿namespace Lab1
 {
-    partial class FormFighter
+    partial class FormParking
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -28,122 +28,124 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonCreate = new System.Windows.Forms.Button();
-            this.buttonDown = new System.Windows.Forms.Button();
-            this.buttonLeft = new System.Windows.Forms.Button();
-            this.buttonUp = new System.Windows.Forms.Button();
-            this.buttonRight = new System.Windows.Forms.Button();
-            this.pictureBoxFighter = new System.Windows.Forms.PictureBox();
+            this.buttonFighter = new System.Windows.Forms.Button();
+            this.buttonPlane = new System.Windows.Forms.Button();
+            this.pictureBoxParking = new System.Windows.Forms.PictureBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBoxTakeFighter = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFighter)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxParking)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakeFighter)).BeginInit();
             this.SuspendLayout();
             // 
-            // buttonCreate
+            // buttonFighter
             // 
-            this.buttonCreate.Location = new System.Drawing.Point(12, 12);
-            this.buttonCreate.Name = "buttonCreate";
-            this.buttonCreate.Size = new System.Drawing.Size(152, 31);
-            this.buttonCreate.TabIndex = 1;
-            this.buttonCreate.Text = "Create Fighter";
-            this.buttonCreate.UseVisualStyleBackColor = true;
-            this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
+            this.buttonFighter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonFighter.Location = new System.Drawing.Point(1183, 26);
+            this.buttonFighter.Name = "buttonFighter";
+            this.buttonFighter.Size = new System.Drawing.Size(107, 36);
+            this.buttonFighter.TabIndex = 0;
+            this.buttonFighter.Text = "Set Fighter";
+            this.buttonFighter.UseVisualStyleBackColor = true;
+            this.buttonFighter.Click += new System.EventHandler(this.buttonSetFighter);
             // 
-            // buttonDown
+            // buttonPlane
             // 
-            this.buttonDown.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonDown.BackgroundImage = global::Lab1.Properties.Resources.arrow4;
-            this.buttonDown.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonDown.Location = new System.Drawing.Point(758, 418);
-            this.buttonDown.Name = "buttonDown";
-            this.buttonDown.Size = new System.Drawing.Size(30, 30);
-            this.buttonDown.TabIndex = 3;
-            this.buttonDown.UseVisualStyleBackColor = true;
-            this.buttonDown.Click += new System.EventHandler(this.buttonMove_Click);
+            this.buttonPlane.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonPlane.Location = new System.Drawing.Point(1183, 68);
+            this.buttonPlane.Name = "buttonPlane";
+            this.buttonPlane.Size = new System.Drawing.Size(107, 36);
+            this.buttonPlane.TabIndex = 1;
+            this.buttonPlane.Text = "Set Plane";
+            this.buttonPlane.UseVisualStyleBackColor = true;
+            this.buttonPlane.Click += new System.EventHandler(this.buttonSetPlane);
             // 
-            // buttonLeft
+            // pictureBoxParking
             // 
-            this.buttonLeft.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonLeft.BackgroundImage = global::Lab1.Properties.Resources.arrow1;
-            this.buttonLeft.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonLeft.Location = new System.Drawing.Point(722, 418);
-            this.buttonLeft.Name = "buttonLeft";
-            this.buttonLeft.Size = new System.Drawing.Size(30, 30);
-            this.buttonLeft.TabIndex = 4;
-            this.buttonLeft.UseVisualStyleBackColor = true;
-            this.buttonLeft.Click += new System.EventHandler(this.buttonMove_Click);
+            this.pictureBoxParking.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBoxParking.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxParking.Name = "pictureBoxParking";
+            this.pictureBoxParking.Size = new System.Drawing.Size(1065, 590);
+            this.pictureBoxParking.TabIndex = 2;
+            this.pictureBoxParking.TabStop = false;
             // 
-            // buttonUp
+            // groupBox1
             // 
-            this.buttonUp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonUp.BackgroundImage = global::Lab1.Properties.Resources.arrow3;
-            this.buttonUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonUp.Location = new System.Drawing.Point(758, 382);
-            this.buttonUp.Name = "buttonUp";
-            this.buttonUp.Size = new System.Drawing.Size(30, 30);
-            this.buttonUp.TabIndex = 5;
-            this.buttonUp.UseVisualStyleBackColor = true;
-            this.buttonUp.Click += new System.EventHandler(this.buttonMove_Click);
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.pictureBoxTakeFighter);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.maskedTextBox1);
+            this.groupBox1.Controls.Add(this.button1);
+            this.groupBox1.Location = new System.Drawing.Point(1118, 282);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(172, 271);
+            this.groupBox1.TabIndex = 3;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Take plane";
             // 
-            // buttonRight
+            // pictureBoxTakeFighter
             // 
-            this.buttonRight.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonRight.BackgroundImage = global::Lab1.Properties.Resources.arrow2;
-            this.buttonRight.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonRight.Location = new System.Drawing.Point(794, 418);
-            this.buttonRight.Name = "buttonRight";
-            this.buttonRight.Size = new System.Drawing.Size(30, 30);
-            this.buttonRight.TabIndex = 2;
-            this.buttonRight.UseVisualStyleBackColor = true;
-            this.buttonRight.Click += new System.EventHandler(this.buttonMove_Click);
+            this.pictureBoxTakeFighter.Location = new System.Drawing.Point(0, 99);
+            this.pictureBoxTakeFighter.Name = "pictureBoxTakeFighter";
+            this.pictureBoxTakeFighter.Size = new System.Drawing.Size(170, 170);
+            this.pictureBoxTakeFighter.TabIndex = 3;
+            this.pictureBoxTakeFighter.TabStop = false;
             // 
-            // pictureBoxFighter
+            // label1
             // 
-            this.pictureBoxFighter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBoxFighter.Location = new System.Drawing.Point(0, 0);
-            this.pictureBoxFighter.Name = "pictureBoxFighter";
-            this.pictureBoxFighter.Size = new System.Drawing.Size(882, 453);
-            this.pictureBoxFighter.TabIndex = 0;
-            this.pictureBoxFighter.TabStop = false;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(20, 34);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(42, 17);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "place";
+            // 
+            // maskedTextBox1
+            // 
+            this.maskedTextBox1.Location = new System.Drawing.Point(102, 31);
+            this.maskedTextBox1.Name = "maskedTextBox1";
+            this.maskedTextBox1.Size = new System.Drawing.Size(50, 22);
+            this.maskedTextBox1.TabIndex = 1;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(206, 12);
+            this.button1.Location = new System.Drawing.Point(23, 63);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(148, 31);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Create War Planer";
+            this.button1.Size = new System.Drawing.Size(120, 30);
+            this.button1.TabIndex = 0;
+            this.button1.Text = "Take";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.buttonTakeCar_Click);
             // 
-            // FormFighter
+            // FormParking
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(882, 453);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.buttonUp);
-            this.Controls.Add(this.buttonLeft);
-            this.Controls.Add(this.buttonDown);
-            this.Controls.Add(this.buttonRight);
-            this.Controls.Add(this.buttonCreate);
-            this.Controls.Add(this.pictureBoxFighter);
-            this.Name = "FormFighter";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFighter)).EndInit();
+            this.ClientSize = new System.Drawing.Size(1294, 590);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.pictureBoxParking);
+            this.Controls.Add(this.buttonPlane);
+            this.Controls.Add(this.buttonFighter);
+            this.Name = "FormParking";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxParking)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakeFighter)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.PictureBox pictureBoxFighter;
-        private System.Windows.Forms.Button buttonCreate;
-        private System.Windows.Forms.Button buttonRight;
-        private System.Windows.Forms.Button buttonDown;
-        private System.Windows.Forms.Button buttonLeft;
-        private System.Windows.Forms.Button buttonUp;
+        private System.Windows.Forms.Button buttonFighter;
+        private System.Windows.Forms.Button buttonPlane;
+        private System.Windows.Forms.PictureBox pictureBoxParking;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.PictureBox pictureBoxTakeFighter;
     }
 }
 

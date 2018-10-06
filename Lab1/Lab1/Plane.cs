@@ -9,8 +9,8 @@ namespace Lab1
 {
     public class Plane : War_plane
     {
-        protected const int planeWidth = 100;
-        protected const int planeHeight = 60;
+        protected const int planeWidth = 120;
+        protected const int planeHeight = 120;
         protected bool MiddleSpoiler { private set; get; }
         protected bool BackSpoiler { private set; get; }
         
@@ -19,6 +19,7 @@ namespace Lab1
             MaxSpeed = maxSpeed;
             Weight = weight;
             MainColor = mainColor;
+            DopColor = Color.Green;
             MiddleSpoiler = middleSpoiler;
             BackSpoiler = backSpoiler;
         }
@@ -62,7 +63,7 @@ namespace Lab1
         public override void Draw(Graphics g)
         {
             
-            Pen pen_18 = new Pen(Color.Green, 16);
+            //Pen pen_18 = new Pen(DopColor, 16);
             Pen pen_8 = new Pen(Color.Green, 8);
             Pen pen_5 = new Pen(Color.Green, 5);
             Pen pen_9 = new Pen(MainColor, 10);

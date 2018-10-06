@@ -10,13 +10,15 @@ using System.Windows.Forms;
 
 namespace Lab1
 {
-    public partial class FormFighter : Form
+    public partial class FormParking : Form
     {
-        private IAircraft fighter;
+        Parking<IAircraft> parking;
 
-        public FormFighter()
+        public FormParking()
         {
             InitializeComponent();
+            parking = new Parking<IAircraft>(16, pictureBoxParking.Width, pictureBoxParking.Height);
+            Draw();
         }
 
         /// <summary>
@@ -24,10 +26,10 @@ namespace Lab1
         /// </summary>
         private void Draw()
         {
-            Bitmap bmp = new Bitmap(pictureBoxFighter.Width, pictureBoxFighter.Height);
+            Bitmap bmp = new Bitmap(pictureBoxParking.Width, pictureBoxParking.Height);
             Graphics gr = Graphics.FromImage(bmp);
-            fighter.Draw(gr);
-            pictureBoxFighter.Image = bmp;
+            parking.Draw(gr);
+            pictureBoxParking.Image = bmp;
         }
 
         /// <summary>
@@ -35,51 +37,54 @@ namespace Lab1
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void buttonCreate_Click(object sender, EventArgs e)
+        private void buttonSetFighter(object sender, EventArgs e)
         {
-            Random rnd = new Random();
-            fighter = new Fighter (rnd.Next(300, 500), rnd.Next(1000, 2000), Color.Black, Color.Gray, true, true, true, true, true);
-            fighter.SetPosition(rnd.Next(50, 150), rnd.Next(50, 150), pictureBoxFighter.Width,
-           pictureBoxFighter.Height);
-            Draw();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Random rnd = new Random();
-            fighter = new Plane(rnd.Next(300, 500), rnd.Next(1000, 2000), Color.Green, true, true);
-            fighter.SetPosition(rnd.Next(50, 150), rnd.Next(50, 150), pictureBoxFighter.Width,
-           pictureBoxFighter.Height);
-            Draw();
-        }
-        
-
-        /// <summary>
-        /// Обработка нажатия кнопок управления
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void buttonMove_Click(object sender, EventArgs e)
-        {
-            //получаем имя кнопки
-            string name = (sender as Button).Name;
-            switch (name)
+            ColorDialog dialog = new ColorDialog();
+            if (dialog.ShowDialog() == DialogResult.OK)
             {
-                case "buttonUp":
-                    fighter.MoveTransport(Direction.Up);
-                    break;
-                case "buttonDown":
-                    fighter.MoveTransport(Direction.Down);
-                    break;
-                case "buttonLeft":
-                    fighter.MoveTransport(Direction.Left);
-                    break;
-                case "buttonRight":
-                    fighter.MoveTransport(Direction.Right);
-                    break;
+                ColorDialog dialogDop = new ColorDialog();
+                if (dialogDop.ShowDialog() == DialogResult.OK)
+                {
+                    var fighter = new Fighter(11000, 2450, dialog.Color, dialogDop.Color, true, true, true, true, true);
+                    int place = parking + fighter;
+
+                    Draw();
+                }
             }
-            Draw();
         }
 
+        private void buttonSetPlane(object sender, EventArgs e)
+        {
+            ColorDialog dialog = new ColorDialog();
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                var fighter = new Plane(11000, 2450, dialog.Color, true, true);
+                int place = parking + fighter;
+                Draw();
+            }
+        }
+
+        private void buttonTakeCar_Click(object sender, EventArgs e)
+        {
+            if (maskedTextBox1.Text != "")
+            {
+                var fighter = parking - Convert.ToInt32(maskedTextBox1.Text);
+                if (fighter != null)
+                {
+                    Bitmap bmp = new Bitmap(pictureBoxTakeFighter.Width, pictureBoxTakeFighter.Height);
+                    Graphics gr = Graphics.FromImage(bmp);
+                    fighter.SetPosition(25, 85, pictureBoxTakeFighter.Width, pictureBoxTakeFighter.Height);
+                    fighter.Draw(gr);
+                    pictureBoxTakeFighter.Image = bmp;
+                }
+                else
+                {
+                    Bitmap bmp = new Bitmap(pictureBoxTakeFighter.Width,
+                   pictureBoxTakeFighter.Height);
+                    pictureBoxTakeFighter.Image = bmp;
+                }
+                Draw();
+            }
+        }
     }
 }
