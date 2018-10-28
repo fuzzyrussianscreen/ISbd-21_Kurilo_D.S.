@@ -10,7 +10,9 @@ namespace Lab1
     class Parking<T> where T: class, IAircraft
     {
 
-        private T[] _places;
+        private Dictionary<int, T> _places;
+
+        private int _maxCount;
 
         private int PictureWidth { get; set; }
 
@@ -22,40 +24,38 @@ namespace Lab1
 
         public Parking(int sizes, int pictureWidth, int pictureHeight)
         {
-            _places = new T[sizes];
+            _maxCount = sizes;
+            _places = new Dictionary<int, T>();
             PictureWidth = pictureWidth;
             PictureHeight = pictureHeight;
-            for (int i = 0; i < _places.Length; i++)
-            {
-                _places[i] = null;
-            }
         }
 
         public static int operator +(Parking<T> p, T fighter)
         {
-            for (int i = 0; i < p._places.Length; i++)
+            if (p._places.Count == p._maxCount)
             {
+                return -1;
+            }
+            for (int i = 0; i < p._maxCount; i++)
+            {   
                 if (p.CheckFreePlace(i))
                 {
-                    p._places[i] = fighter;
-                    p._places[i].SetPosition(5 + i / 4 * p._placeSizeWidth + 5, i % 4 * p._placeSizeHeight + 60, p.PictureWidth,p.PictureHeight);
+                    p._places.Add(i, fighter);
+                    p._places[i].SetPosition(5 + i / 4 * p._placeSizeWidth + 5,
+                     i % 4 * p._placeSizeHeight + 60, p.PictureWidth,
+                    p.PictureHeight);
                     return i;
                 }
             }
-            return -1;
+            return -1;  
         }
 
         public static T operator -(Parking<T> p, int index)
         {
-            index -= 1;
-            if (index < 0 || index > p._places.Length)
-            {
-                return null;
-            }
             if (!p.CheckFreePlace(index))
             {
                 T fighter = p._places[index];
-                p._places[index] = null;
+                p._places.Remove(index);
                 return fighter;
             }
             return null;
@@ -63,18 +63,16 @@ namespace Lab1
 
         private bool CheckFreePlace(int index)
         {
-            return _places[index] == null;
+            return !_places.ContainsKey(index);
         }
 
         public void Draw(Graphics g)
         {
             DrawMarking(g);
-            for (int i = 0; i < _places.Length; i++)
+            var keys = _places.Keys.ToList();
+            for (int i = 0; i < keys.Count; i++)
             {
-                if (!CheckFreePlace(i))
-                {
-                    _places[i].Draw(g);
-                }
+                _places[keys[i]].Draw(g);
             }
         }
 
@@ -84,8 +82,8 @@ namespace Lab1
             Pen pen2 = new Pen(Color.White, 3);
             Brush brush = new SolidBrush(Color.Gray);
             
-            g.FillRectangle(brush, 0, 0, (_places.Length / 4) * _placeSizeWidth+10, 600);
-            for (int i = 0; i < _places.Length / 4; i++)
+            g.FillRectangle(brush, 0, 0, (_maxCount / 4) * _placeSizeWidth+10, 600);
+            for (int i = 0; i < _maxCount / 4; i++)
             {
                 for (int j = 0; j < 5; ++j)
                 {

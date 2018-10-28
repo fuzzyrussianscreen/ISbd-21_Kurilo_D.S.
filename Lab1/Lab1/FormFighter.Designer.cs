@@ -36,6 +36,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.listBoxLevels = new System.Windows.Forms.ListBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxParking)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakeFighter)).BeginInit();
@@ -55,7 +56,7 @@
             // buttonPlane
             // 
             this.buttonPlane.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonPlane.Location = new System.Drawing.Point(1183, 68);
+            this.buttonPlane.Location = new System.Drawing.Point(1073, 26);
             this.buttonPlane.Name = "buttonPlane";
             this.buttonPlane.Size = new System.Drawing.Size(107, 36);
             this.buttonPlane.TabIndex = 1;
@@ -120,9 +121,21 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.buttonTakeCar_Click);
             // 
+            // listBoxLevels
+            // 
+            this.listBoxLevels.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.listBoxLevels.FormattingEnabled = true;
+            this.listBoxLevels.ItemHeight = 16;
+            this.listBoxLevels.Location = new System.Drawing.Point(1076, 68);
+            this.listBoxLevels.Name = "listBoxLevels";
+            this.listBoxLevels.Size = new System.Drawing.Size(214, 196);
+            this.listBoxLevels.TabIndex = 4;
+            this.listBoxLevels.SelectedIndexChanged += new System.EventHandler(this.listBoxLevels_SelectedIndexChanged);
+            // 
             // FormParking
             // 
             this.ClientSize = new System.Drawing.Size(1294, 590);
+            this.Controls.Add(this.listBoxLevels);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBoxParking);
             this.Controls.Add(this.buttonPlane);
@@ -146,6 +159,7 @@
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.PictureBox pictureBoxTakeFighter;
+        private System.Windows.Forms.ListBox listBoxLevels;
     }
 }
 
