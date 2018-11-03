@@ -28,8 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonFighter = new System.Windows.Forms.Button();
-            this.buttonPlane = new System.Windows.Forms.Button();
+            this.button = new System.Windows.Forms.Button();
             this.pictureBoxParking = new System.Windows.Forms.PictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.pictureBoxTakeFighter = new System.Windows.Forms.PictureBox();
@@ -42,27 +41,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTakeFighter)).BeginInit();
             this.SuspendLayout();
             // 
-            // buttonFighter
+            // button
             // 
-            this.buttonFighter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonFighter.Location = new System.Drawing.Point(1183, 26);
-            this.buttonFighter.Name = "buttonFighter";
-            this.buttonFighter.Size = new System.Drawing.Size(107, 36);
-            this.buttonFighter.TabIndex = 0;
-            this.buttonFighter.Text = "Set Fighter";
-            this.buttonFighter.UseVisualStyleBackColor = true;
-            this.buttonFighter.Click += new System.EventHandler(this.buttonSetFighter);
-            // 
-            // buttonPlane
-            // 
-            this.buttonPlane.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonPlane.Location = new System.Drawing.Point(1073, 26);
-            this.buttonPlane.Name = "buttonPlane";
-            this.buttonPlane.Size = new System.Drawing.Size(107, 36);
-            this.buttonPlane.TabIndex = 1;
-            this.buttonPlane.Text = "Set Plane";
-            this.buttonPlane.UseVisualStyleBackColor = true;
-            this.buttonPlane.Click += new System.EventHandler(this.buttonSetPlane);
+            this.button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button.Location = new System.Drawing.Point(1073, 26);
+            this.button.Name = "button";
+            this.button.Size = new System.Drawing.Size(107, 36);
+            this.button.TabIndex = 1;
+            this.button.Text = "Set";
+            this.button.UseVisualStyleBackColor = true;
+            this.button.Click += new System.EventHandler(this.buttonSetPlane);
             // 
             // pictureBoxParking
             // 
@@ -138,8 +126,7 @@
             this.Controls.Add(this.listBoxLevels);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.pictureBoxParking);
-            this.Controls.Add(this.buttonPlane);
-            this.Controls.Add(this.buttonFighter);
+            this.Controls.Add(this.button);
             this.Name = "FormParking";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxParking)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -150,9 +137,7 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button buttonFighter;
-        private System.Windows.Forms.Button buttonPlane;
+        private System.Windows.Forms.Button button;
         private System.Windows.Forms.PictureBox pictureBoxParking;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;

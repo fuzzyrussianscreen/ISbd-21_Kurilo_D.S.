@@ -14,6 +14,7 @@ namespace Lab1
     {
         MultiLevelParking parking;
         private const int countLevel = 3;
+        FormConfig form;
         public FormParking()
         {
             InitializeComponent();
@@ -39,53 +40,15 @@ namespace Lab1
                 pictureBoxParking.Image = bmp;
             }
         }
-
-        /// <summary>
-        /// Обработка нажатия кнопки "Создать"
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void buttonSetFighter(object sender, EventArgs e)
-        {
-            if (listBoxLevels.SelectedIndex > -1)
-            {
-
-                ColorDialog dialog = new ColorDialog();
-                if (dialog.ShowDialog() == DialogResult.OK)
-                {
-                    ColorDialog dialogDop = new ColorDialog();
-                    if (dialogDop.ShowDialog() == DialogResult.OK)
-                    {
-                        var fighter = new Fighter(11000, 2450, dialog.Color, dialogDop.Color, true, true, true, true, true);
-                        int place = parking[listBoxLevels.SelectedIndex] + fighter;
-                        if (place == -1)
-                        {
-                            MessageBox.Show("Нет свободных мест", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                        Draw();
-                    }
-                }
-            }
-        }
+        
 
         private void buttonSetPlane(object sender, EventArgs e)
         {
-            if (listBoxLevels.SelectedIndex > -1)
-            {
-
-                ColorDialog dialog = new ColorDialog();
-                if (dialog.ShowDialog() == DialogResult.OK)
-                {
-                    var fighter = new Plane(11000, 2450, dialog.Color, true, true);
-                    int place = parking[listBoxLevels.SelectedIndex] + fighter;
-                    if (place == -1)
-                    {
-                        MessageBox.Show("Нет свободных мест", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    Draw();
-                }
-            }
+            form = new FormConfig();
+            form.AddEvent(AddFighter);
+            form.Show();
         }
+        
 
         private void buttonTakeCar_Click(object sender, EventArgs e)
         {
@@ -104,8 +67,7 @@ namespace Lab1
                     }
                     else
                     {
-                        Bitmap bmp = new Bitmap(pictureBoxTakeFighter.Width,
-                       pictureBoxTakeFighter.Height);
+                        Bitmap bmp = new Bitmap(pictureBoxTakeFighter.Width, pictureBoxTakeFighter.Height);
                         pictureBoxTakeFighter.Image = bmp;
                     }
                     Draw();
@@ -117,5 +79,22 @@ namespace Lab1
         {
             Draw();
         }
+
+        private void AddFighter(IAircraft fighter)
+        {
+            if (fighter != null && listBoxLevels.SelectedIndex > -1)
+            {
+                int place = parking[listBoxLevels.SelectedIndex] + fighter;
+                if (place > -1)
+                {
+                    Draw();
+                }
+                else
+                {
+                    MessageBox.Show("Машину не удалось поставить");
+                }
+            }
+        }
+
     }
 }

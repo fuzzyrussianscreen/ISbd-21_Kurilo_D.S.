@@ -6,8 +6,11 @@ using System.Windows.Forms;
 
 namespace Lab1
 {
+    public delegate void fighterDelegate(IAircraft fighter);
+
     static class Program
     {
+        
         /// <summary>
         /// Главная точка входа для приложения.
         /// </summary>

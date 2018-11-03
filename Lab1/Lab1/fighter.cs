@@ -31,7 +31,7 @@ namespace Lab1
             DopColor = dopColor;
         }
 
-        public override void Draw(Graphics g)   
+        public override void Draw(Graphics g)
         {
             Pen pen_18 = new Pen(DopColor, 16);
             //Pen pen_8 = new Pen(DopColor, 8);
@@ -57,9 +57,15 @@ namespace Lab1
 
             if (Signs2)
             {
-                g.FillEllipse(brush, _startPosX, _startPosY-6, 10, 12);
+                g.FillEllipse(brush, _startPosX, _startPosY - 6, 10, 12);
             }
-            
+
         }
+
+        public void SetDopColor(Color color)
+        {
+            DopColor = color;
+        }
+
     }
 }
