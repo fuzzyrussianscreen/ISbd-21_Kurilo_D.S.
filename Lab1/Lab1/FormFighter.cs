@@ -12,8 +12,7 @@ namespace Lab1
 {
     public partial class FormFighter : Form
     {
-        private IAircraft fighter;
-
+        private Fighter fighter;
         public FormFighter()
         {
             InitializeComponent();
@@ -26,7 +25,7 @@ namespace Lab1
         {
             Bitmap bmp = new Bitmap(pictureBoxFighter.Width, pictureBoxFighter.Height);
             Graphics gr = Graphics.FromImage(bmp);
-            fighter.Draw(gr);
+            fighter.DrawCar(gr);
             pictureBoxFighter.Image = bmp;
         }
 
@@ -38,21 +37,12 @@ namespace Lab1
         private void buttonCreate_Click(object sender, EventArgs e)
         {
             Random rnd = new Random();
-            fighter = new Fighter (rnd.Next(300, 500), rnd.Next(1000, 2000), Color.Black, Color.Gray, true, true, true, true, true);
+            fighter = new Fighter (rnd.Next(300, 500), rnd.Next(1000, 2000), Color.Black,
+           Color.Gray, true, true, true);
             fighter.SetPosition(rnd.Next(50, 150), rnd.Next(50, 150), pictureBoxFighter.Width,
            pictureBoxFighter.Height);
             Draw();
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Random rnd = new Random();
-            fighter = new Plane(rnd.Next(300, 500), rnd.Next(1000, 2000), Color.Green, true, true);
-            fighter.SetPosition(rnd.Next(50, 150), rnd.Next(50, 150), pictureBoxFighter.Width,
-           pictureBoxFighter.Height);
-            Draw();
-        }
-        
 
         /// <summary>
         /// Обработка нажатия кнопок управления
@@ -80,6 +70,5 @@ namespace Lab1
             }
             Draw();
         }
-
     }
 }
