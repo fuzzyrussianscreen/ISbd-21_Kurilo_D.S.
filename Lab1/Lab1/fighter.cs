@@ -34,7 +34,7 @@ namespace Lab1
         public Fighter(string info) : base(info)
         {
             string[] strs = info.Split(';');
-            if (strs.Length == 6)
+            if (strs.Length == 9)
             {
                 MaxSpeed = Convert.ToInt32(strs[0]);
                 Weight = Convert.ToInt32(strs[1]);
