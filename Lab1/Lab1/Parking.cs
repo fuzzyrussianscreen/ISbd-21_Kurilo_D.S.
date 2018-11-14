@@ -95,5 +95,25 @@ namespace Lab1
                 g.DrawLine(pen2, i * _placeSizeWidth, 540, i * _placeSizeWidth + 260, 540);
             }
         }
+
+        public T this[int ind]
+        {
+            get
+            {
+                if (_places.ContainsKey(ind))
+                {
+                    return _places[ind];
+                }
+                return null;
+            }
+            set
+            {
+                if (CheckFreePlace(ind))
+                {
+                    _places.Add(ind, value);
+                    _places[ind].SetPosition(5 + ind / 4 * _placeSizeWidth + 15, ind % 4 * _placeSizeHeight + 60, PictureWidth, PictureHeight);
+                }
+            }
+        }
     }
 }
