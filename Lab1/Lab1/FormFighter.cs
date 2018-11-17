@@ -41,7 +41,6 @@ namespace Lab1
             }
         }
         
-
         private void buttonSetPlane(object sender, EventArgs e)
         {
             form = new FormConfig();
@@ -49,7 +48,6 @@ namespace Lab1
             form.Show();
         }
         
-
         private void buttonTakeCar_Click(object sender, EventArgs e)
         {
             if (listBoxLevels.SelectedIndex > -1)

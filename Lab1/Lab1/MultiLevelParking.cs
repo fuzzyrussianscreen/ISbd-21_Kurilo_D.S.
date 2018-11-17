@@ -14,7 +14,8 @@ namespace Lab1
 
         private const int countPlaces = 16;
         private int pictureWidth;
-        private int pictureHeight;        
+        private int pictureHeight;
+        
         public MultiLevelParking(int countStages, int pictureWidth, int pictureHeight)
         {
             parkingStages = new List<Parking<IAircraft>>();
@@ -48,20 +49,15 @@ namespace Lab1
             {
                 using (BufferedStream bs = new BufferedStream(fs))
                 {
-                    //Записываем количество уровней
-                    WriteToFile("CountLeveles:" + parkingStages.Count +
-                   Environment.NewLine, fs);
+                    WriteToFile("CountLeveles:" + parkingStages.Count + Environment.NewLine, fs);
                     foreach (var level in parkingStages)
                     {
-                        //Начинаем уровень
                         WriteToFile("Level" + Environment.NewLine, fs);
                         for (int i = 0; i < countPlaces; i++)
                         {
                             var fighter = level[i];
                             if (fighter != null)
                             {
-                                //если место не пустое
-                                //Записываем тип мшаины
                                 if (fighter.GetType().Name == "Plane")
                                 {
                                     WriteToFile(i + ":Plane:", fs);
@@ -70,7 +66,6 @@ namespace Lab1
                                 {
                                     WriteToFile(i + ":Fighter:", fs);
                                 }
-                                //Записываемые параметры
                                 WriteToFile(fighter + Environment.NewLine, fs);
                             }
                         }
@@ -79,21 +74,13 @@ namespace Lab1
             }
             return true;
         }
-        /// <summary>
-        /// Метод записи информации в файл
-        /// </summary>
-        /// <param name="text">Строка, которую следует записать</param>
-        /// <param name="stream">Поток для записи</param>
+        
         private void WriteToFile(string text, FileStream stream)
         {
             byte[] info = new UTF8Encoding(true).GetBytes(text);
             stream.Write(info, 0, info.Length);
         }
-        /// <summary>
-        /// Загрузка нформации по автомобилям на парковках из файла
-        /// </summary>
-        /// <param name="filename"></param>
-        /// <returns></returns>
+        
         public bool LoadData(string filename)
         {
             if (!File.Exists(filename))
@@ -117,7 +104,6 @@ namespace Lab1
             var strs = bufferTextFromFile.Split('\n');
             if (strs[0].Contains("CountLeveles"))
             {
-                //считываем количество уровней
                 int count = Convert.ToInt32(strs[0].Split(':')[1]);
                 if (parkingStages != null)
                 {
@@ -127,17 +113,14 @@ namespace Lab1
             }
             else
             {
-                //если нет такой записи, то это не те данные
                 return false;
             }
             int counter = -1;
             IAircraft fighter = null;
             for (int i = 1; i < strs.Length; ++i)
             {
-                //идем по считанным записям
                 if (strs[i] == "Level")
                 {
-                    //начинаем новый уровень
                     counter++;
                     parkingStages.Add(new Parking<IAircraft>(countPlaces, pictureWidth, pictureHeight));
                     continue;
@@ -157,6 +140,7 @@ namespace Lab1
                 parkingStages[counter][Convert.ToInt32(strs[i].Split(':')[0])] = fighter;
             }
             return true;
-        }        
+        }
+        
     }
 }
