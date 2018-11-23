@@ -11,8 +11,8 @@ namespace Lab1
     {
         protected const int planeWidth = 120;
         protected const int planeHeight = 120;
-        protected bool MiddleSpoiler { private set; get; }
-        protected bool BackSpoiler { private set; get; }
+        public bool MiddleSpoiler { protected set; get; }
+        public bool BackSpoiler { protected set; get; }
         
         public Plane(int maxSpeed, float weight, Color mainColor, bool middleSpoiler, bool backSpoiler)
         {
@@ -22,6 +22,20 @@ namespace Lab1
             DopColor = Color.Green;
             MiddleSpoiler = middleSpoiler;
             BackSpoiler = backSpoiler;
+        }
+
+        public Plane(string info) 
+        {
+            string[] strs = info.Split(';');
+            if (strs.Length == 5)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                Weight = Convert.ToInt32(strs[1]);
+                MainColor = Color.FromName(strs[2]);
+                DopColor = Color.Green;
+                MiddleSpoiler = Convert.ToBoolean(strs[3]);
+                BackSpoiler = Convert.ToBoolean(strs[4]);
+            }
         }
 
         public override void MoveTransport(Direction direction)
@@ -97,6 +111,11 @@ namespace Lab1
             g.DrawLine(pen_6, _startPosX + 79, _startPosY + 3, _startPosX + 100, _startPosY);
             
             g.DrawLine(pen_5, _startPosX + 100, _startPosY, _startPosX + 110, _startPosY);
+        }
+
+        public override string ToString()
+        {
+            return MaxSpeed + ";" + Weight + ";" + MainColor.Name + ";" + MiddleSpoiler + ";" + BackSpoiler;
         }
     }
 }

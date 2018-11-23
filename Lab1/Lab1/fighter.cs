@@ -31,6 +31,23 @@ namespace Lab1
             DopColor = dopColor;
         }
 
+        public Fighter(string info) : base(info)
+        {
+            string[] strs = info.Split(';');
+            if (strs.Length == 9)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                Weight = Convert.ToInt32(strs[1]);
+                MainColor = Color.FromName(strs[2]);
+                MiddleSpoiler = Convert.ToBoolean(strs[3]);
+                BackSpoiler = Convert.ToBoolean(strs[4]);
+                DopColor = Color.FromName(strs[5]);
+                FrontSpoiler = Convert.ToBoolean(strs[6]);
+                Signs = Convert.ToBoolean(strs[7]);
+                Signs2 = Convert.ToBoolean(strs[8]);
+            }
+        }
+
         public override void Draw(Graphics g)
         {
             Pen pen_18 = new Pen(DopColor, 16);
@@ -66,6 +83,10 @@ namespace Lab1
         {
             DopColor = color;
         }
-
+        
+        public override string ToString()
+        {
+            return base.ToString() + ";" + DopColor.Name + ";" + FrontSpoiler + ";" + Signs + ";" + Signs2;
+        }
     }
 }
